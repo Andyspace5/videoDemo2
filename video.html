@@ -24,7 +24,19 @@
 
 <body>
     <video 
+    id="video1"
     class="initVideo"
+    muted="true"
+    x5-playsinline="true"
+    playsinline="true"
+    webkit-playsinline
+    autoplay
+    controls
+    preload="preload"
+    ></video>
+    <video 
+    class="initVideo"
+    id="video2"
     muted="true"
     x5-playsinline="true"
     playsinline="true"
@@ -153,7 +165,7 @@
             console.log(recorderFile);
             alert(recorderFile.type+'-----'+recorderFile.size)
             var url = URL.createObjectURL(recorderFile);
-            const dom = document.querySelector('video');
+            const dom = document.querySelector('#video2');
             dom.src = url;
             // console.log(url)
             // var dom = document.createElement(videoEnabled ? 'video' : 'audio');
@@ -193,7 +205,7 @@
 
             navigator.mediaDevices.getUserMedia(constraints)
                 .then(function (mediaStream) {
-                    var video = document.querySelector('video');
+                    var video = document.querySelector('#video1');
                     video.style.display='block'
                     video.srcObject = mediaStream;
                     // video.src = mediaStream
