@@ -146,9 +146,17 @@
             var url = URL.createObjectURL(recorderFile);
             console.log(url)
             var dom = document.createElement(videoEnabled ? 'video' : 'audio');
-            // dom.autoplay = true;
+            console.log(wx,dom);
             dom.controls=true;
             dom.src = url;
+            ref="video"
+            dom.muted=true
+            dom['x5-playsinline']=true
+            dom.playsinline=true
+            dom['webkit-playsinline']=true
+            dom.autoplay=true
+            dom.controls=true
+            dom.preload="preload"
             if (videoEnabled) {
                 dom.width = 375;
                 dom.height = 480;
