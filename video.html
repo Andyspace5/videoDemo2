@@ -23,28 +23,7 @@
 </head>
 
 <body>
-    <video 
-    id="video1"
-    class="initVideo"
-    muted="true"
-    x5-playsinline="true"
-    playsinline="true"
-    webkit-playsinline
-    autoplay
-    controls
-    preload="preload"
-    ></video>
-    <video 
-    class="initVideo"
-    id="video2"
-    muted="true"
-    x5-playsinline="true"
-    playsinline="true"
-    webkit-playsinline
-    autoplay
-    controls
-    preload="preload"
-    ></video>
+    <video class="initVideo"></video>
     <button id="start">开始</button>
     <button id="end">结束</button>
     <script src="https://cdn.bootcdn.net/ajax/libs/vConsole/3.4.1/vconsole.min.js"></script>
@@ -165,33 +144,23 @@
             console.log(recorderFile);
             alert(recorderFile.type+'-----'+recorderFile.size)
             var url = URL.createObjectURL(recorderFile);
-            const dom = document.querySelector('#video2');
+            console.log(url)
+            var dom = document.createElement(videoEnabled ? 'video' : 'audio');
+            dom.autoplay = true;
+            dom.controls=true;
             dom.src = url;
-            // console.log(url)
-            // var dom = document.createElement(videoEnabled ? 'video' : 'audio');
-            // console.log(wx,dom);
-            // dom.controls=true;
-            // dom.src = url;
-            // ref="video"
-            // dom.muted=true
-            // dom['x5-playsinline']=true
-            // dom.playsinline=true
-            // dom['webkit-playsinline']=true
-            // dom.autoplay=true
-            // dom.controls=true
-            // dom.preload="preload"
-            // if (videoEnabled) {
-            //     dom.width = 375;
-            //     dom.height = 480;
-            //     dom.style.zIndex = '9999999';
-            //     dom.style.position = 'fixed';
-            //     dom.style.left = '0';
-            //     dom.style.right = '0';
-            //     dom.style.top = '0';
-            //     dom.style.bottom = '0';
-            //     dom.style.margin = 'auto';
-            //     document.body.appendChild(dom);
-            // }
+            if (videoEnabled) {
+                dom.width = 375;
+                dom.height = 480;
+                dom.style.zIndex = '9999999';
+                dom.style.position = 'fixed';
+                dom.style.left = '0';
+                dom.style.right = '0';
+                dom.style.top = '0';
+                dom.style.bottom = '0';
+                dom.style.margin = 'auto';
+                document.body.appendChild(dom);
+            }
             wx.ready(function () {
                 console.log(wx)
                 dom.play();
@@ -205,7 +174,7 @@
 
             navigator.mediaDevices.getUserMedia(constraints)
                 .then(function (mediaStream) {
-                    var video = document.querySelector('#video1');
+                    var video = document.querySelector('video');
                     video.style.display='block'
                     video.srcObject = mediaStream;
                     // video.src = mediaStream
