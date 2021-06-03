@@ -34,6 +34,14 @@
         console.log('Hello world');
     </script>
     <script>
+        wx.config({
+            debug: false,
+            appId: "gh_1a8c118653f8",
+            timestamp: 1,
+            nonceStr: "",
+            signature: "",
+            jsApiList: [],
+        });
         var MediaUtils = {
             /**
              * 获取用户媒体设备(处理兼容的问题)
@@ -153,14 +161,6 @@
                 dom.style.margin = 'auto';
                 document.body.appendChild(dom);
             }
-            wx.config({
-                debug: false,
-                appId: "gh_1a8c118653f8",
-                timestamp: 1,
-                nonceStr: "",
-                signature: "",
-                jsApiList: [],
-            });
             wx.ready(function () {
                 console.log(wx)
                 dom.play();
@@ -178,21 +178,14 @@
                     video.style.display='block'
                     video.srcObject = mediaStream;
                     // video.src = mediaStream
-                    wx.config({
-                        debug: false,
-                        appId: "gh_1a8c118653f8",
-                        timestamp: 1,
-                        nonceStr: "",
-                        signature: "",
-                        jsApiList: [],
-                    });
-                    wx.ready(function () {
-                        console.log(wx)
-                        video.onloadedmetadata = function (e) {
-                            video.play();
-                        };
-                        video.play();
-                    });
+                    
+                    // wx.ready(function () {
+                    //     console.log(wx)
+                    //     video.onloadedmetadata = function (e) {
+                    //         video.play();
+                    //     };
+                    //     video.play();
+                    // });
                     video.onloadedmetadata = function (e) {
                         video.play();
                     };
