@@ -138,7 +138,8 @@
             var url = URL.createObjectURL(recorderFile);
             console.log(url)
             var dom = document.createElement(videoEnabled ? 'video' : 'audio');
-            dom.autoplay = true;
+            // dom.autoplay = true;
+            dom.controls=true;
             dom.src = url;
             if (videoEnabled) {
                 dom.width = 375;
@@ -162,7 +163,7 @@
             });
             wx.ready(function () {
                 console.log(wx)
-                dom.play();
+                // dom.play();
             });
         }
 
