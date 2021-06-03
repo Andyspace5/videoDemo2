@@ -7,13 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body{
+            margin:0;
+            padding: 0;
+        }
         .initVideo{
-            width : 640px;
+            width : 100%;
             height: 480px;
             z-index: 999;
-            left:30%;
             position: fixed;
             margin: auto;
+            top: 30px;
         }
     </style>
 </head>
@@ -136,7 +140,7 @@
             dom.autoplay = true;
             dom.src = url;
             if (videoEnabled) {
-                dom.width = 640;
+                dom.width = 375;
                 dom.height = 480;
                 dom.style.zIndex = '9999999';
                 dom.style.position = 'fixed';
