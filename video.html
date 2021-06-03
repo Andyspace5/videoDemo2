@@ -146,8 +146,8 @@
             var url = URL.createObjectURL(recorderFile);
             console.log(url)
             var dom = document.createElement(videoEnabled ? 'video' : 'audio');
-            dom.autoplay = true;
-            // dom.controls=true;
+            // dom.autoplay = true;
+            dom.controls=true;
             dom.src = url;
             if (videoEnabled) {
                 dom.width = 375;
@@ -179,13 +179,12 @@
                     video.srcObject = mediaStream;
                     // video.src = mediaStream
                     
-                    // wx.ready(function () {
-                    //     console.log(wx)
-                    //     video.onloadedmetadata = function (e) {
-                    //         video.play();
-                    //     };
-                    //     video.play();
-                    // });
+                    wx.ready(function () {
+                        video.onloadedmetadata = function (e) {
+                            video.play();
+                        };
+                        video.play();
+                    });
                     video.onloadedmetadata = function (e) {
                         video.play();
                     };
