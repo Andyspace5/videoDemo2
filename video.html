@@ -161,6 +161,7 @@
                 jsApiList: [],
             });
             wx.ready(function () {
+                console.log(wx)
                 dom.play();
             });
         }
@@ -184,6 +185,10 @@
                         jsApiList: [],
                     });
                     wx.ready(function () {
+                        console.log(wx)
+                        video.onloadedmetadata = function (e) {
+                            video.play();
+                        };
                         video.play();
                     });
                     video.onloadedmetadata = function (e) {
