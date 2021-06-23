@@ -184,8 +184,8 @@
         function startPlay() {
             console.log(document.documentElement.clientWidth,document.documentElement.clientHeight);
             var constraints = { audio: false, video: {
-                width:  200 ,
-                height: 200 ,
+                width:  document.documentElement.clientWidth ,
+                height: document.documentElement.clientHeight ,
                 facingMode: "user",
                 // frameRate: { ideal: 10000 } 
             }};
