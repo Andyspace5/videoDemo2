@@ -60,7 +60,12 @@
             getUserMedia: function (videoEnable, audioEnable, callback) {
                 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia
                     || navigator.msGetUserMedia || window.getUserMedia;
-                var constraints = { video: videoEnable, audio: audioEnable };
+                    var constraints = { audio: false, video: {
+                        width:  document.documentElement.clientWidth ,
+                        height: document.documentElement.clientHeight ,
+                        facingMode: "user",
+                        // frameRate: { ideal: 10000 } 
+                    }};
                 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
                     navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
                         callback(false, stream);
@@ -174,23 +179,9 @@
                 dom.play();
             });
         }
-
         // 启动录制视频 (若需要录制音频参数指定为 false 即可)
 
         function startPlay() {
-<<<<<<< HEAD
-            const winWidth = document.documentElement.clientWidth;
-            const winHeight = document.documentElement.clientHeight;
-            const constraints = { 
-                audio: false, 
-                video: {
-                    facingMode: "user",
-                    width:winWidth,
-                    height:winHeight,
-                    frameRate: { ideal: 10000 } 
-                }
-            };
-=======
             console.log(document.documentElement.clientWidth,document.documentElement.clientHeight);
             var constraints = { audio: false, video: {
                 width:  document.documentElement.clientWidth ,
@@ -198,7 +189,6 @@
                 facingMode: "user",
                 // frameRate: { ideal: 10000 } 
             }};
->>>>>>> 635d4bb58bdfcabc0cebb40cecc04d409933d001
 
             navigator.mediaDevices.getUserMedia(constraints)
                 .then(function (mediaStream) {
