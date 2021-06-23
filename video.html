@@ -12,7 +12,7 @@
             padding: 0;
         }
         .initVideo{
-            width : 100%;
+            width : 100vw;
             height: 100vh;
             z-index: 1;
             position: fixed;
@@ -191,7 +191,7 @@
             }};
             navigator.mediaDevices.getUserMedia(constraints)
                 .then(function (mediaStream) {
-                    var video = document.querySelector('video');
+                    var video = document.querySelector('.initVideo');
                     video.style.display='block'
                     video.srcObject = mediaStream;
                     // video.src = mediaStream
