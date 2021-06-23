@@ -61,8 +61,8 @@
                 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia
                     || navigator.msGetUserMedia || window.getUserMedia;
                     const constraints = { audio: false, video: {
-                        width:  document.documentElement.clientWidth ,
-                        height: document.documentElement.clientHeight ,
+                        width:  200,
+                        height: 200 ,
                         facingMode: "user",
                         // frameRate: { ideal: 10000 } 
                     }};
