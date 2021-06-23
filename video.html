@@ -60,7 +60,7 @@
             getUserMedia: function (videoEnable, audioEnable, callback) {
                 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia
                     || navigator.msGetUserMedia || window.getUserMedia;
-                    var constraints = { audio: false, video: {
+                    const constraints = { audio: false, video: {
                         width:  document.documentElement.clientWidth ,
                         height: document.documentElement.clientHeight ,
                         facingMode: "user",
