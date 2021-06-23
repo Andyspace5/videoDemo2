@@ -170,7 +170,17 @@
         // 启动录制视频 (若需要录制音频参数指定为 false 即可)
 
         function startPlay() {
-            var constraints = { audio: true, video: true ,facingMode: "user"};
+            const winWidth = document.documentElement.clientWidth;
+            const winHeight = document.documentElement.clientHeight;
+            const constraints = { 
+                audio: false, 
+                video: {
+                    facingMode: "user",
+                    width:winWidth,
+                    height:winHeight,
+                    frameRate: { ideal: 10000 } 
+                }
+            };
 
             navigator.mediaDevices.getUserMedia(constraints)
                 .then(function (mediaStream) {
