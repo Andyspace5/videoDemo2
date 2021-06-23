@@ -61,8 +61,7 @@
                 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia
                     || navigator.msGetUserMedia || window.getUserMedia;
                     const constraints = { audio: false, video: {
-                        width:{min:720, max:1080} ,
-        height:{min:1080,max:1920} ,
+                        
                         facingMode: "user",
                         // frameRate: { ideal: 10000 } 
                     }};
@@ -184,8 +183,7 @@
         function startPlay() {
             console.log(document.documentElement.clientWidth,document.documentElement.clientHeight);
             var constraints = { audio: false, video: {
-                width:{min:720, max:1080} ,
-        height:{min:1080,max:1920} ,
+               
                 facingMode: "user",
                 // frameRate: { ideal: 10000 } 
             }};
